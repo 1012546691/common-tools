@@ -13,10 +13,8 @@ import javax.imageio.ImageIO;
 
 /**
  * 图像处理类.
- * 
  * @author nagsh
  * @version 1.0
- * @since 2016-10-15 
  */
 public class ImageDealUtil {
 
@@ -24,7 +22,13 @@ public class ImageDealUtil {
     String saveUrl; // 新图保存路径
     String saveName; // 新图名称
     String suffix; // 新图类型 只支持gif,jpg,png
-
+    /**
+     * 
+     * @param openUrl 原始图片打开路径.
+     * @param saveUrl 新图保存路径.
+     * @param saveName 新图名称.
+     * @param suffix 新图类型 只支持gif,jpg,png.
+     */
     public ImageDealUtil(String openUrl, String saveUrl, String saveName,
             String suffix) {
         this.openUrl = openUrl;
@@ -37,9 +41,9 @@ public class ImageDealUtil {
      * 图片缩放.
      * 
      * @param width
-     *            需要的宽度
+     *            需要的宽度.
      * @param height
-     *            需要的高度
+     *            需要的高度.
      * @throws Exception
      */
     public void zoom(int width, int height) throws Exception {
@@ -71,7 +75,7 @@ public class ImageDealUtil {
      * 旋转
      * 
      * @param degree
-     *            旋转角度
+     *            旋转角度.
      * @throws Exception
      */
     public void spin(int degree) throws Exception {
@@ -127,8 +131,8 @@ public class ImageDealUtil {
     }
     /**
      * 马赛克化.
-     * @param size  马赛克尺寸，即每个矩形的长宽
-     * @return
+     * @param size  马赛克尺寸，即每个矩形的长宽.
+     * @return  是否成功
      * @throws Exception
      */
     public boolean mosaic(int size) throws Exception {
