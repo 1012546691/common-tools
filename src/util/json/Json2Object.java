@@ -19,7 +19,7 @@ public class Json2Object {
 	 * 将json对象(只有一组值)转为javabean
 	 * @param json 如 {"password":"aaa","username":"admin"}
 	 * @param ObjectClass 要转的对象的class
-	 * @return
+	 * @return javabean对象
 	 */
 	public Object getObjectFromJSONObject(String json,Class ObjectClass) {  
 		Object object = new Object();
@@ -30,7 +30,7 @@ public class Json2Object {
     /**
      * 将json对象(只有一组值)转为map
      * @param json 如 {"password":"aaa","username":"admin"}
-     * @return
+     * @return map
      */
 	public Map<String, ?> getMapFromJSONObject(String json) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -47,7 +47,7 @@ public class Json2Object {
 	 *  将json对象转为map 内部可嵌套
 	 * @param json 如:{"height":1,"width":1,"location":[{ "顶部":"3"},{"底部":"1" },{"左侧":"2" },{ "右侧":"1"},{"悬浮":"4" }],
      *                  "type":[{"1":"1"},{"2":"2" },{"3":"4" },{"4":"4"}]}
-	 * @return
+	 * @return map
 	 */
     public Map<String, Object> getMappFromJSONObject2(String json) {
         Map<String, Object> map = new HashMap<String, Object>();
@@ -83,7 +83,7 @@ public class Json2Object {
 	 * 将json数组转为list
 	 * @param json 如:[{"password":"aaa","username":"admin"},{"password":"bbb","username":"sa"}]
 	 * @param ObjectClass 要转的对象的class
-	 * @return
+	 * @return list
 	 */
 	public List<?> getListFromJsonArray(String json,Class ObjectClass) {    
 		JSONArray array = JSONArray.fromObject(json);
@@ -95,7 +95,7 @@ public class Json2Object {
 	 * @param json 如:"[{\"personId\":\"1\",\"user\":{\"password\":\"aaa\",\"username\":\"admin\"}},{\"personId\":\"2\",\"user\":{\"password\":\"bbb\",\"username\":\"sa\"}}]";
 	 * @param className 要转的对象的class
 	 * @param classMap 成员中javabean的class
-	 * @return
+	 * @return list
 	 */
 	public List<?> getListFromJsonArray(String json,Class className,Map<String, Class> classMap) {  
 		List<?>  list = new ArrayList();
