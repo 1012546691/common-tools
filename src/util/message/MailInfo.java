@@ -5,7 +5,7 @@ import java.util.Properties;
 
 import com.sun.mail.util.MailSSLSocketFactory;
 /**
- * ÓÊ¼şĞÅÏ¢
+ * é‚®ä»¶ä¿¡æ¯
  * @author nagsh
  *
  */
@@ -30,7 +30,7 @@ public class MailInfo {
 		p.put("mail.transport.protocol", this.mailTransportProtocol);
 		p.put("mail.smtp.port", this.mailSmtpPort);
 		p.put("mail.smtp.auth", this.mailSmtpAuth ? "true" : "false");
-		// SSL¼ÓÃÜ
+		// SSLåŠ å¯†
 		if (mailSmtpSslEnable) {
 			MailSSLSocketFactory sf;
 			try {
@@ -53,7 +53,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param mailSmtpHost
-	 *            Ö÷»úÃû
+	 *            ä¸»æœºå
 	 */
 	public void setMailSmtpHost(String mailSmtpHost) {
 		this.mailSmtpHost = mailSmtpHost;
@@ -66,7 +66,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param mailSmtpPort
-	 *            ¶Ë¿ÚºÅ,Ä¬ÈÏ25
+	 *            ç«¯å£å·,é»˜è®¤25
 	 */
 	public void setMailSmtpPort(String mailSmtpPort) {
 		this.mailSmtpPort = mailSmtpPort;
@@ -79,7 +79,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param mailTransportProtocol
-	 *            ÓÊ¼şĞ­ÒéÃû Ä¬ÈÏsmtp
+	 *            é‚®ä»¶åè®®å é»˜è®¤smtp
 	 */
 	public void setMailTransportProtocol(String mailTransportProtocol) {
 		this.mailTransportProtocol = mailTransportProtocol;
@@ -92,7 +92,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param mailSmtpAuth
-	 *            ÓÊ¼ş·şÎñÆ÷ÊÇ·ñĞèÒªÉí·İÈÏÖ¤,Ä¬ÈÏfalse
+	 *            é‚®ä»¶æœåŠ¡å™¨æ˜¯å¦éœ€è¦èº«ä»½è®¤è¯,é»˜è®¤false
 	 */
 	public void setMailSmtpAuth(boolean mailSmtpAuth) {
 		this.mailSmtpAuth = mailSmtpAuth;
@@ -105,7 +105,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param mailSmtpSslEnable
-	 *            ÊÇ·ñĞèÒªSSL¼ÓÃÜ,Ä¬ÈÏfalse
+	 *            æ˜¯å¦éœ€è¦SSLåŠ å¯†,é»˜è®¤false
 	 */
 	public void setMailSmtpSslEnable(boolean mailSmtpSslEnable) {
 		this.mailSmtpSslEnable = mailSmtpSslEnable;
@@ -118,7 +118,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param userName
-	 *            Éí·İÈÏÖ¤ÓÃ»§Ãû
+	 *            èº«ä»½è®¤è¯ç”¨æˆ·å
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
@@ -131,7 +131,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param password
-	 *            Éí·İÈÏÖ¤ÃÜÂë£¬qqÓÊÏäĞè¿ªÆôsmtp²¢»ñÈ¡ÃØÔ¿£¬´Ë´¦ÎªÃØÔ¿
+	 *            èº«ä»½è®¤è¯å¯†ç ï¼Œqqé‚®ç®±éœ€å¼€å¯smtpå¹¶è·å–ç§˜é’¥ï¼Œæ­¤å¤„ä¸ºç§˜é’¥
 	 */
 	public void setPassword(String password) {
 		this.password = password;
@@ -144,7 +144,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param fromAddress
-	 *            ·¢ËÍÈËÓÊÏäµØÖ·
+	 *            å‘é€äººé‚®ç®±åœ°å€
 	 */
 	public void setFromAddress(String fromAddress) {
 		this.fromAddress = fromAddress;
@@ -157,7 +157,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param toAddress
-	 *            ½ÓÊÕÈËÓÊÏäµØÖ·
+	 *            æ¥æ”¶äººé‚®ç®±åœ°å€
 	 */
 	public void setToAddress(String toAddress) {
 		this.toAddress = toAddress;
@@ -170,7 +170,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param subject
-	 *            ±êÌâ
+	 *            æ ‡é¢˜
 	 */
 	public void setSubject(String subject) {
 		this.subject = subject;
@@ -183,7 +183,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param content
-	 *            ÕıÎÄÎÄ±¾
+	 *            æ­£æ–‡æ–‡æœ¬
 	 */
 	public void setContent(String content) {
 		this.content = content;
@@ -197,7 +197,7 @@ public class MailInfo {
 	 * 
 	 * 
 	 * @param supportHtml
-	 *            ÊÇ·ñÖ§³Öhtml,Ä¬ÈÏfalse,¼´Ä¬ÈÏÎª´¿ÎÄ±¾ÎÄ¼ş£¬µ±ÎªtrueÊÇ»áanhtml·½Ê½½âÎöÎÄ±¾
+	 *            æ˜¯å¦æ”¯æŒhtml,é»˜è®¤false,å³é»˜è®¤ä¸ºçº¯æ–‡æœ¬æ–‡ä»¶ï¼Œå½“ä¸ºtrueæ˜¯ä¼šanhtmlæ–¹å¼è§£ææ–‡æœ¬
 	 */
 	public void setSupportHtml(boolean supportHtml) {
 		this.supportHtml = supportHtml;
@@ -210,7 +210,7 @@ public class MailInfo {
 	/**
 	 * 
 	 * @param attachFileNames
-	 *            ¸½¼şÃû³Æ
+	 *            é™„ä»¶åç§°
 	 */
 	public void setAttachFileNames(String[] attachFileNames) {
 		this.attachFileNames = attachFileNames;

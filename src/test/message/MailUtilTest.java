@@ -12,13 +12,13 @@ public class MailUtilTest {
 		mailInfo.setMailTransportProtocol("smtp");
 		mailInfo.setMailSmtpSslEnable(true);
 		mailInfo.setMailSmtpAuth(true);
-		mailInfo.setUserName("·¢ËÍÈËÓÊÏä");
-		mailInfo.setPassword("ÃÜÂë");  //qqÓÊÏäÎªÃØÔ¿
-		mailInfo.setFromAddress("·¢ËÍÈËÓÊÏä");
-		mailInfo.setToAddress("½ÓÊÕÈËÓÊÏä1;½ÓÊÕÈËÓÊÏä2");
-        mailInfo.setSubject("²âÊÔ¸½¼ş");
+		mailInfo.setUserName("å‘é€äººé‚®ç®±");
+		mailInfo.setPassword("å¯†ç ");  //qqé‚®ç®±ä¸ºç§˜é’¥
+		mailInfo.setFromAddress("å‘é€äººé‚®ç®±");
+		mailInfo.setToAddress("æ¥æ”¶äººé‚®ç®±1;æ¥æ”¶äººé‚®ç®±2");
+        mailInfo.setSubject("æµ‹è¯•é™„ä»¶");
         mailInfo.setSupportHtml(true);
-        mailInfo.setContent("<h1>javamail²âÊÔhtml¸ñÊ½ </h1>");
+        mailInfo.setContent("<h1>javamailæµ‹è¯•htmlæ ¼å¼ </h1>");
         String fileName[] = {"E:/HTTP_1.1_US.pdf","E:/HTTP_1.1_CN.pdf"};
         mailInfo.setAttachFileNames(fileName);
         MailUtil mailUtil = new MailUtil();

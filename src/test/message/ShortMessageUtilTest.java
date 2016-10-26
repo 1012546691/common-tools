@@ -12,10 +12,10 @@ public class ShortMessageUtilTest {
 
 	public static void main(String[] args) {
 		ShortMessageInfo shortMessageInfo = new ShortMessageInfo();
-		shortMessageInfo.setUid("ÓÃ»§Ãû");
-		shortMessageInfo.setKey("½Ó¿ÚÃØÔ¿");
-		shortMessageInfo.setSmsMob("ÊÖ»úºÅ");
-		shortMessageInfo.setSmsText("ĞÅÏ¢ÎÄ±¾");
+		shortMessageInfo.setUid("ç”¨æˆ·å");
+		shortMessageInfo.setKey("æ¥å£ç§˜é’¥");
+		shortMessageInfo.setSmsMob("æ‰‹æœºå·");
+		shortMessageInfo.setSmsText("ä¿¡æ¯æ–‡æœ¬");
 		
 		ShortMessageUtil util = new ShortMessageUtil();
 		try {

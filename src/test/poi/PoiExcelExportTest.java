@@ -9,26 +9,26 @@ public class PoiExcelExportTest {
 
 	public static void main(String[] args) {
 		PoiExcelExport pee = new PoiExcelExport("E:/test.xls","sheet1");
-		//Êı¾İ
+		//æ•°æ®
         List<Man> dataList = new ArrayList();
-        Man man1 = new Man("ÕÅÈı",20,"ÄĞ",(float)10000.8);
-        Man man2 = new Man("ÀîËÄ",21,"ÄĞ",(float)11000.8);
-        Man man3 = new Man("ÍõÎå",22,"Å®",(float)1200.8);
-        Man man4 = new Man("ÕÔÁù",23,"ÄĞ",(float)13000.8);
-        Man man5 = new Man("ÌïÆß",24,"ÄĞ",(float)14000.8);
+        Man man1 = new Man("å¼ ä¸‰",20,"ç”·",(float)10000.8);
+        Man man2 = new Man("æå››",21,"ç”·",(float)11000.8);
+        Man man3 = new Man("ç‹äº”",22,"å¥³",(float)1200.8);
+        Man man4 = new Man("èµµå…­",23,"ç”·",(float)13000.8);
+        Man man5 = new Man("ç”°ä¸ƒ",24,"ç”·",(float)14000.8);
         Man man6 = new Man();
-        man6.setName("ÀÏ°Ë");
+        man6.setName("è€å…«");
         dataList.add(man1);dataList.add(man2);dataList.add(man3);dataList.add(man4);dataList.add(man5);
         dataList.add(man6);
-        //µ÷ÓÃ
+        //è°ƒç”¨
         String titleColumn[] = {"name","sex","idCard","salary",""};
-        String titleName[] = {"ĞÕÃû","ĞÔ±ğ","Éí·İÖ¤ºÅ","ÔÂĞ½","ÄêĞ½"};
+        String titleName[] = {"å§“å","æ€§åˆ«","èº«ä»½è¯å·","æœˆè–ª","å¹´è–ª"};
         int titleSize[] = {13,13,13,13,13};
-        //ÆäËûÉèÖÃ set·½·¨¿ÉÈ«²»µ÷ÓÃ
+        //å…¶ä»–è®¾ç½® setæ–¹æ³•å¯å…¨ä¸è°ƒç”¨
         String colFormula[] = new String[5];
-        colFormula[4] = "D@*12";   //ÉèÖÃµÚ5ÁĞµÄ¹«Ê½
+        colFormula[4] = "D@*12";   //è®¾ç½®ç¬¬5åˆ—çš„å…¬å¼
         pee.setColFormula(colFormula);
-        pee.setAddress("A:D");  //×Ô¶¯É¸Ñ¡ 
+        pee.setAddress("A:D");  //è‡ªåŠ¨ç­›é€‰ 
         
         pee.wirteExcel(titleColumn, titleName, titleSize, dataList);
 

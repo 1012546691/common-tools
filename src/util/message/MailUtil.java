@@ -24,20 +24,20 @@ public class MailUtil {
 	Transport ts = null;
 
 	/**
-	 * ·¢ËÍÓÊ¼ş
-	 * @param mailInfo ÓÊ¼şÉèÖÃĞÅÏ¢
+	 * å‘é€é‚®ä»¶
+	 * @param mailInfo é‚®ä»¶è®¾ç½®ä¿¡æ¯
 	 * @throws Exception
 	 */
 	public void sendMail(MailInfo mailInfo) throws Exception {
 		Properties prop = mailInfo.getProperties();
-		// 1¡¢´´½¨session
+		// 1ã€åˆ›å»ºsession
 		session = Session.getInstance(prop);
-		// ¿ªÆôSessionµÄdebugÄ£Ê½£¬ÕâÑù¾Í¿ÉÒÔ²é¿´µ½³ÌĞò·¢ËÍEmailµÄÔËĞĞ×´Ì¬
+		// å¼€å¯Sessionçš„debugæ¨¡å¼ï¼Œè¿™æ ·å°±å¯ä»¥æŸ¥çœ‹åˆ°ç¨‹åºå‘é€Emailçš„è¿è¡ŒçŠ¶æ€
 		session.setDebug(true);
 		try {
-			// 2¡¢Í¨¹ısessionµÃµ½transport¶ÔÏó
+			// 2ã€é€šè¿‡sessionå¾—åˆ°transportå¯¹è±¡
 			ts = session.getTransport();
-			// 3¡¢Ê¹ÓÃÓÊÏäµÄÓÃ»§ÃûºÍÃÜÂëÁ¬ÉÏÓÊ¼ş·şÎñÆ÷£¬·¢ËÍÓÊ¼şÊ±£¬·¢¼şÈËĞèÒªÌá½»ÓÊÏäµÄÓÃ»§ÃûºÍÃÜÂë¸øsmtp·şÎñÆ÷£¬ÓÃ»§ÃûºÍÃÜÂë¶¼Í¨¹ıÑéÖ¤Ö®ºó²ÅÄÜ¹»Õı³£·¢ËÍÓÊ¼ş¸øÊÕ¼şÈË¡£
+			// 3ã€ä½¿ç”¨é‚®ç®±çš„ç”¨æˆ·åå’Œå¯†ç è¿ä¸Šé‚®ä»¶æœåŠ¡å™¨ï¼Œå‘é€é‚®ä»¶æ—¶ï¼Œå‘ä»¶äººéœ€è¦æäº¤é‚®ç®±çš„ç”¨æˆ·åå’Œå¯†ç ç»™smtpæœåŠ¡å™¨ï¼Œç”¨æˆ·åå’Œå¯†ç éƒ½é€šè¿‡éªŒè¯ä¹‹åæ‰èƒ½å¤Ÿæ­£å¸¸å‘é€é‚®ä»¶ç»™æ”¶ä»¶äººã€‚
 			ts.connect(mailInfo.getMailSmtpHost(), mailInfo.getUserName(),
 					mailInfo.getPassword());
 		} catch (NoSuchProviderException e) {
@@ -45,22 +45,22 @@ public class MailUtil {
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		}
-		// ´´½¨ÓÊ¼ş¶ÔÏó
+		// åˆ›å»ºé‚®ä»¶å¯¹è±¡
 		MimeMessage message = new MimeMessage(session);
-		// Ö¸Ã÷ÓÊ¼şµÄ·¢¼şÈË
+		// æŒ‡æ˜é‚®ä»¶çš„å‘ä»¶äºº
 		message.setFrom(new InternetAddress(mailInfo.getFromAddress()));
-		// Ö¸Ã÷ÓÊ¼şµÄÊÕ¼şÈË
+		// æŒ‡æ˜é‚®ä»¶çš„æ”¶ä»¶äºº
 		String toAddress = mailInfo.getToAddress().replaceAll(";", ",");
 		InternetAddress[] toList;
 		try {
 			toList = InternetAddress.parse(toAddress);
 		} catch (Exception e) {
-			throw new Exception("ÊÕ¼şÈË¸ñÊ½´íÎó,¶à¸öÊÕ¼şÈËÇëÒÔ\";\"¸ô¿ª");
+			throw new Exception("æ”¶ä»¶äººæ ¼å¼é”™è¯¯,å¤šä¸ªæ”¶ä»¶äººè¯·ä»¥\";\"éš”å¼€");
 		}
 		message.setRecipients(Message.RecipientType.TO, toList);
-		// ÓÊ¼şµÄ±êÌâ
+		// é‚®ä»¶çš„æ ‡é¢˜
 		message.setSubject(mailInfo.getSubject());
-		// ÓÊ¼şµÄÎÄ±¾ÄÚÈİ
+		// é‚®ä»¶çš„æ–‡æœ¬å†…å®¹
 		Multipart multipart = new MimeMultipart();
 		if (mailInfo.isSupportHtml()) {
 			BodyPart html = new MimeBodyPart();
@@ -87,7 +87,7 @@ public class MailUtil {
 				}
 			}
 		} catch (Exception e) {
-			throw new Exception("Ìí¼Ó¸½¼şÊ§°Ü");
+			throw new Exception("æ·»åŠ é™„ä»¶å¤±è´¥");
 		}
 		message.setContent(multipart);
 

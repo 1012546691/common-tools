@@ -17,7 +17,7 @@ public class Json2ObjectTest {
 		Map<String, String> map = (Map<String, String>) o.getMapFromJSONObject(json1);
 		System.out.println(map.get("username"));
 		
-		String json4 = "{\"height\":1,\"width\":1,\"location\":[{ \"∂•≤ø\":\"3\"},{\"µ◊≤ø\":\"1\" },{\"◊Û≤‡\":\"2\" },{ \"”“≤‡\":\"1\"},{\"–¸∏°\":\"4\" }],\"type\":[{\"1\":\"1\"},{\"2\":\"2\" },{\"3\":\"4\" },{\"4\":\"4\"}]}";
+		String json4 = "{\"height\":1,\"width\":1,\"location\":[{ \"È°∂ÈÉ®\":\"3\"},{\"Â∫ïÈÉ®\":\"1\" },{\"Â∑¶‰æß\":\"2\" },{ \"Âè≥‰æß\":\"1\"},{\"ÊÇ¨ÊµÆ\":\"4\" }],\"type\":[{\"1\":\"1\"},{\"2\":\"2\" },{\"3\":\"4\" },{\"4\":\"4\"}]}";
 		 Map<String, Object> map2 = o.getMappFromJSONObject2(json4);
 	    for(Map.Entry<String, Object> entry:map2.entrySet()){
             System.out.println(entry.getKey()+"-"+entry.getValue());

@@ -12,7 +12,7 @@ public class ShortMessageResult {
 	/**
 	 * 
 	 * @param statusCode
-	 *            ÇëÇó×´Ì¬Âë
+	 *            è¯·æ±‚çŠ¶æ€ç 
 	 */
 	public void setStatusCode(int statusCode) {
 		this.statusCode = statusCode;
@@ -25,7 +25,7 @@ public class ShortMessageResult {
 	/**
 	 * 
 	 * @param code
-	 *            ÏìÓ¦Âë
+	 *            å“åº”ç 
 	 */
 	public void setCode(String code) {
 		this.code = code;
@@ -38,7 +38,7 @@ public class ShortMessageResult {
 	/**
 	 * 
 	 * @param message
-	 *            ÏìÓ¦Âë¶ÔÓ¦ĞÅÏ¢
+	 *            å“åº”ç å¯¹åº”ä¿¡æ¯
 	 */
 	public void setMessage(String message) {
 		this.message = message;

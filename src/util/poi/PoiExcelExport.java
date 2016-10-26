@@ -22,36 +22,36 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.util.CellRangeAddress;
 
 /**
- * POIµ¼³öexcel¹¤¾ßÀà.
- * ÒÀÀµpoi°æ±¾:3.12
+ * POIå¯¼å‡ºexcelå·¥å…·ç±».
+ * ä¾èµ–poiç‰ˆæœ¬:3.12
  * @author nagsh
  * @version 1.0
  */
 public class PoiExcelExport {
 	HttpServletResponse response;
-	// ÎÄ¼şÃû
+	// æ–‡ä»¶å
 	private String fileName ;
-	//ÎÄ¼ş±£´æÂ·¾¶
+	//æ–‡ä»¶ä¿å­˜è·¯å¾„
 	private String fileDir;
-	//sheetÃû
+	//sheetå
 	private String sheetName;
-	//±íÍ·×ÖÌå
+	//è¡¨å¤´å­—ä½“
 	private String titleFontType = "Arial Unicode MS";
-	//±íÍ·±³¾°É«
+	//è¡¨å¤´èƒŒæ™¯è‰²
 	private String titleBackColor = "C1FBEE";
-	//±íÍ·×ÖºÅ
+	//è¡¨å¤´å­—å·
 	private short titleFontSize = 12;
-	//Ìí¼Ó×Ô¶¯É¸Ñ¡µÄÁĞ Èç A:M
+	//æ·»åŠ è‡ªåŠ¨ç­›é€‰çš„åˆ— å¦‚ A:M
 	private String address = "";
-	//ÕıÎÄ×ÖÌå
+	//æ­£æ–‡å­—ä½“
 	private String contentFontType = "Arial Unicode MS";
-	//ÕıÎÄ×ÖºÅ
+	//æ­£æ–‡å­—å·
 	private short contentFontSize = 12;
-	//FloatÀàĞÍÊı¾İĞ¡ÊıÎ»
+	//Floatç±»å‹æ•°æ®å°æ•°ä½
 	private String floatDecimal = ".00";
-	//DoubleÀàĞÍÊı¾İĞ¡ÊıÎ»
+	//Doubleç±»å‹æ•°æ®å°æ•°ä½
 	private String doubleDecimal = ".00";
-	//ÉèÖÃÁĞµÄ¹«Ê½
+	//è®¾ç½®åˆ—çš„å…¬å¼
 	private String colFormula[] = null;
 	
 	DecimalFormat floatDecimalFormat=new DecimalFormat(floatDecimal);
@@ -60,8 +60,8 @@ public class PoiExcelExport {
 	private HSSFWorkbook workbook = null;
 	/**
 	 * 
-	 * @param fileDir excel±£´æµØÖ·
-	 * @param sheetName  sheetÃû
+	 * @param fileDir excelä¿å­˜åœ°å€
+	 * @param sheetName  sheetå
 	 */
 	public PoiExcelExport(String fileDir,String sheetName){
 	     this.fileDir = fileDir;
@@ -70,9 +70,9 @@ public class PoiExcelExport {
 	}
 	/**
 	 * 
-	 * @param response HttpServletResponse Ö±½ÓÍ¨¹ıÁ÷µ¼³ö
-	 * @param fileName ÎÄ¼şÃû
-	 * @param sheetName sheetÃû
+	 * @param response HttpServletResponse ç›´æ¥é€šè¿‡æµå¯¼å‡º
+	 * @param fileName æ–‡ä»¶å
+	 * @param sheetName sheetå
 	 */
 	public PoiExcelExport(HttpServletResponse response,String fileName,String sheetName){
 		 this.response = response;
@@ -80,86 +80,86 @@ public class PoiExcelExport {
 	     workbook = new HSSFWorkbook();
 	}
     /**
-     * ÉèÖÃ±íÍ·×ÖÌå.
-     * @param titleFontType ×ÖÌåÀàĞÍ
+     * è®¾ç½®è¡¨å¤´å­—ä½“.
+     * @param titleFontType å­—ä½“ç±»å‹
      */
 	public void setTitleFontType(String titleFontType) {
 		this.titleFontType = titleFontType;
 	}
     /**
-     * ÉèÖÃ±íÍ·±³¾°É«.
-     * @param titleBackColor Ê®Áù½øÖÆ
+     * è®¾ç½®è¡¨å¤´èƒŒæ™¯è‰².
+     * @param titleBackColor åå…­è¿›åˆ¶
      */
 	public void setTitleBackColor(String titleBackColor) {
 		this.titleBackColor = titleBackColor;
 	}
     /**
-     * ÉèÖÃ±íÍ·×ÖÌå´óĞ¡.
-     * @param titleFontSize ×ÖÌå´óĞ¡
+     * è®¾ç½®è¡¨å¤´å­—ä½“å¤§å°.
+     * @param titleFontSize å­—ä½“å¤§å°
      */
 	public void setTitleFontSize(short titleFontSize) {
 		this.titleFontSize = titleFontSize;
 	}
     /**
-     * ÉèÖÃ±íÍ·×Ô¶¯É¸Ñ¡À¸Î»,ÈçA:AC.
-     * @param address À¸Î»,ÈçA:AC
+     * è®¾ç½®è¡¨å¤´è‡ªåŠ¨ç­›é€‰æ ä½,å¦‚A:AC.
+     * @param address æ ä½,å¦‚A:AC
      */
 	public void setAddress(String address) {
 		this.address = address;
 	}
     /**
-     * ÉèÖÃÕıÎÄ×ÖÌå.
-     * @param contentFontType ÕıÎÄ×ÖÌå
+     * è®¾ç½®æ­£æ–‡å­—ä½“.
+     * @param contentFontType æ­£æ–‡å­—ä½“
      */
 	public void setContentFontType(String contentFontType) {
 		this.contentFontType = contentFontType;
 	}
     /**
-     * ÉèÖÃÕıÎÄ×ÖºÅ.
-     * @param contentFontSize ÕıÎÄ×ÖºÅ
+     * è®¾ç½®æ­£æ–‡å­—å·.
+     * @param contentFontSize æ­£æ–‡å­—å·
      */
 	public void setContentFontSize(short contentFontSize) {
 		this.contentFontSize = contentFontSize;
 	}
 	/**
-	 * ÉèÖÃfloatÀàĞÍÊı¾İĞ¡ÊıÎ» Ä¬ÈÏ.00
-	 * @param doubleDecimal Èç ".00"
+	 * è®¾ç½®floatç±»å‹æ•°æ®å°æ•°ä½ é»˜è®¤.00
+	 * @param doubleDecimal å¦‚ ".00"
 	 */
     public void setDoubleDecimal(String doubleDecimal) {
 		this.doubleDecimal = doubleDecimal;
 	}
 	/**
-     * ÉèÖÃdoubelÀàĞÍÊı¾İĞ¡ÊıÎ» Ä¬ÈÏ.00
-     * @param floatDecimalFormat Èç ".00
+     * è®¾ç½®doubelç±»å‹æ•°æ®å°æ•°ä½ é»˜è®¤.00
+     * @param floatDecimalFormat å¦‚ ".00
      */
 	public void setFloatDecimalFormat(DecimalFormat floatDecimalFormat) {
 		this.floatDecimalFormat = floatDecimalFormat;
 	}
 	/**
-	 * ÉèÖÃÁĞµÄ¹«Ê½ 
-	 * @param colFormula  ´æ´¢i-1ÁĞµÄ¹«Ê½ Éæ¼°µ½µÄĞĞºÅÊ¹ÓÃ@Ìæ»» ÈçA@+B@
+	 * è®¾ç½®åˆ—çš„å…¬å¼ 
+	 * @param colFormula  å­˜å‚¨i-1åˆ—çš„å…¬å¼ æ¶‰åŠåˆ°çš„è¡Œå·ä½¿ç”¨@æ›¿æ¢ å¦‚A@+B@
 	 */
 	public void setColFormula(String[] colFormula) {
 		this.colFormula = colFormula;
 	}
 	/**
-     * µ¼³öÊı¾İµ½excel.
-     * @param titleColumn  ¶ÔÓ¦beanµÄÊôĞÔÃû
-     * @param titleName   excelÒªµ¼³öµÄ±íÃû
-     * @param titleSize   ÁĞ¿í
-     * @param dataList  Êı¾İ
+     * å¯¼å‡ºæ•°æ®åˆ°excel.
+     * @param titleColumn  å¯¹åº”beançš„å±æ€§å
+     * @param titleName   excelè¦å¯¼å‡ºçš„è¡¨å
+     * @param titleSize   åˆ—å®½
+     * @param dataList  æ•°æ®
      */
 	public void wirteExcel(String titleColumn[],String titleName[],int titleSize[],List<?> dataList){
-    	//Ìí¼ÓWorksheet£¨²»Ìí¼ÓsheetÊ±Éú³ÉµÄxlsÎÄ¼ş´ò¿ªÊ±»á±¨´í)
+    	//æ·»åŠ Worksheetï¼ˆä¸æ·»åŠ sheetæ—¶ç”Ÿæˆçš„xlsæ–‡ä»¶æ‰“å¼€æ—¶ä¼šæŠ¥é”™)
     	Sheet sheet = workbook.createSheet(this.sheetName);  
-    	//ĞÂ½¨ÎÄ¼ş
+    	//æ–°å»ºæ–‡ä»¶
     	OutputStream out = null;
     	try {	 
     		if(fileDir!=null){
-    			//ÓĞÎÄ¼şÂ·¾¶
+    			//æœ‰æ–‡ä»¶è·¯å¾„
     			out = new FileOutputStream(fileDir);    			
     		}else{
-    			//·ñÔò£¬Ö±½ÓĞ´µ½Êä³öÁ÷ÖĞ
+    			//å¦åˆ™ï¼Œç›´æ¥å†™åˆ°è¾“å‡ºæµä¸­
     			out = response.getOutputStream();
     			fileName = fileName+".xls";
     			response.setContentType("application/x-msdownload");
@@ -167,48 +167,48 @@ public class PoiExcelExport {
     					+ URLEncoder.encode(fileName, "UTF-8"));
     		}
     		
-    		//Ğ´ÈëexcelµÄ±íÍ·
+    		//å†™å…¥excelçš„è¡¨å¤´
     		Row titleNameRow = workbook.getSheet(sheetName).createRow(0); 
-    		//ÉèÖÃÑùÊ½
+    		//è®¾ç½®æ ·å¼
     		HSSFCellStyle titleStyle = workbook.createCellStyle();  
     		titleStyle = (HSSFCellStyle) setFontAndBorder(titleStyle, titleFontType, (short) titleFontSize);
 	    	titleStyle = (HSSFCellStyle) setColor(titleStyle, titleBackColor, (short)10);
     		
     		for(int i = 0;i < titleName.length;i++){
-	    		sheet.setColumnWidth(i, titleSize[i]*256);    //ÉèÖÃ¿í¶È   		
+	    		sheet.setColumnWidth(i, titleSize[i]*256);    //è®¾ç½®å®½åº¦   		
 	    		Cell cell = titleNameRow.createCell(i);
 	    		cell.setCellStyle(titleStyle);
 	    		cell.setCellValue(titleName[i].toString());
 	    	}
 	    	
-	    	//Îª±íÍ·Ìí¼Ó×Ô¶¯É¸Ñ¡
+	    	//ä¸ºè¡¨å¤´æ·»åŠ è‡ªåŠ¨ç­›é€‰
 	    	if(!"".equals(address)){
 				CellRangeAddress c = (CellRangeAddress) CellRangeAddress.valueOf(address);
 		    	sheet.setAutoFilter(c);
 			}
 	    	
-	    	//Í¨¹ı·´Éä»ñÈ¡Êı¾İ²¢Ğ´Èëµ½excelÖĞ
+	    	//é€šè¿‡åå°„è·å–æ•°æ®å¹¶å†™å…¥åˆ°excelä¸­
 	    	if(dataList!=null&&dataList.size()>0){
-	    		//ÉèÖÃÑùÊ½
+	    		//è®¾ç½®æ ·å¼
 	    		HSSFCellStyle dataStyle = workbook.createCellStyle();  
 	    		titleStyle = (HSSFCellStyle) setFontAndBorder(titleStyle, contentFontType, (short) contentFontSize);
 	    		
 	    		if(titleColumn.length>0){
 	    	    	for(int rowIndex = 1;rowIndex<=dataList.size();rowIndex++){
-	    	    		Object obj = dataList.get(rowIndex-1);     //»ñµÃ¸Ã¶ÔÏó
-	    	    		Class clsss = obj.getClass();     //»ñµÃ¸Ã¶Ô¶ÔÏóµÄclassÊµÀı
+	    	    		Object obj = dataList.get(rowIndex-1);     //è·å¾—è¯¥å¯¹è±¡
+	    	    		Class clsss = obj.getClass();     //è·å¾—è¯¥å¯¹å¯¹è±¡çš„classå®ä¾‹
 	    	    		Row dataRow = workbook.getSheet(sheetName).createRow(rowIndex);    
 	    	    		for(int columnIndex = 0;columnIndex<titleColumn.length;columnIndex++){
 	    	    			String title = titleColumn[columnIndex].toString().trim();
-	    	    			if(!"".equals(title)){  //×Ö¶Î²»Îª¿Õ
-	    	    				//Ê¹Ê××ÖÄ¸´óĞ´
-								String UTitle = Character.toUpperCase(title.charAt(0))+ title.substring(1, title.length()); // Ê¹ÆäÊ××ÖÄ¸´óĞ´;
+	    	    			if(!"".equals(title)){  //å­—æ®µä¸ä¸ºç©º
+	    	    				//ä½¿é¦–å­—æ¯å¤§å†™
+								String UTitle = Character.toUpperCase(title.charAt(0))+ title.substring(1, title.length()); // ä½¿å…¶é¦–å­—æ¯å¤§å†™;
 								String methodName  = "get"+UTitle;
 								
-								// ÉèÖÃÒªÖ´ĞĞµÄ·½·¨
+								// è®¾ç½®è¦æ‰§è¡Œçš„æ–¹æ³•
 								Method method = clsss.getDeclaredMethod(methodName); 
 								
-								//»ñÈ¡·µ»ØÀàĞÍ
+								//è·å–è¿”å›ç±»å‹
 								String returnType = method.getReturnType().getName(); 
 								
 								String data = method.invoke(obj)==null?"":method.invoke(obj).toString();
@@ -226,7 +226,7 @@ public class PoiExcelExport {
 										cell.setCellValue(data);
 									}
 								}
-	    	    			}else{   //×Ö¶ÎÎª¿Õ ¼ì²é¸ÃÁĞÊÇ·ñÊÇ¹«Ê½
+	    	    			}else{   //å­—æ®µä¸ºç©º æ£€æŸ¥è¯¥åˆ—æ˜¯å¦æ˜¯å…¬å¼
 	    	    				if(colFormula!=null){
 	    	    					String sixBuf = colFormula[columnIndex].replace("@", (rowIndex+1)+"");
 	    	    					Cell cell = dataRow.createCell(columnIndex);
@@ -252,19 +252,19 @@ public class PoiExcelExport {
 	}
 	
     /**
-     * ½«16½øÖÆµÄÑÕÉ«´úÂëĞ´ÈëÑùÊ½ÖĞÀ´ÉèÖÃÑÕÉ«
-     * @param style  ±£Ö¤styleÍ³Ò»
-     * @param color ÑÕÉ«£º66FFDD
-     * @param index Ë÷Òı 8-64 Ê¹ÓÃÊ±²»¿ÉÖØ¸´
+     * å°†16è¿›åˆ¶çš„é¢œè‰²ä»£ç å†™å…¥æ ·å¼ä¸­æ¥è®¾ç½®é¢œè‰²
+     * @param style  ä¿è¯styleç»Ÿä¸€
+     * @param color é¢œè‰²ï¼š66FFDD
+     * @param index ç´¢å¼• 8-64 ä½¿ç”¨æ—¶ä¸å¯é‡å¤
      * @return CellStyle
      */
     public CellStyle setColor(CellStyle style,String color,short index){
     	if(color!=""&&color!=null){
-			//×ªÎªRGBÂë
-    		int r = Integer.parseInt((color.substring(0,2)),16);   //×ªÎª16½øÖÆ
+			//è½¬ä¸ºRGBç 
+    		int r = Integer.parseInt((color.substring(0,2)),16);   //è½¬ä¸º16è¿›åˆ¶
     		int g = Integer.parseInt((color.substring(2,4)),16);
     		int b = Integer.parseInt((color.substring(4,6)),16);
-    		//×Ô¶¨ÒåcellÑÕÉ«
+    		//è‡ªå®šä¹‰cellé¢œè‰²
     		HSSFPalette palette = workbook.getCustomPalette(); 
     		palette.setColorAtIndex((short)index, (byte) r, (byte) g, (byte) b);
     	
@@ -275,10 +275,10 @@ public class PoiExcelExport {
     }
    
     /**
-     * ÉèÖÃ×ÖÌå²¢¼ÓÍâ±ß¿ò
-     * @param style  ÑùÊ½
-     * @param fontName  ×ÖÌåÃû
-     * @param size  ´óĞ¡
+     * è®¾ç½®å­—ä½“å¹¶åŠ å¤–è¾¹æ¡†
+     * @param style  æ ·å¼
+     * @param fontName  å­—ä½“å
+     * @param size  å¤§å°
      * @return CellStyle 
      */
     public CellStyle setFontAndBorder(CellStyle style,String fontName,short size){
@@ -287,25 +287,25 @@ public class PoiExcelExport {
         font.setFontName(fontName); 
         font.setBold(true);
         style.setFont(font);
-        style.setBorderBottom(CellStyle.BORDER_THIN); //ÏÂ±ß¿ò    
-        style.setBorderLeft(CellStyle.BORDER_THIN);//×ó±ß¿ò    
-        style.setBorderTop(CellStyle.BORDER_THIN);//ÉÏ±ß¿ò    
-        style.setBorderRight(CellStyle.BORDER_THIN);//ÓÒ±ß¿ò   
+        style.setBorderBottom(CellStyle.BORDER_THIN); //ä¸‹è¾¹æ¡†    
+        style.setBorderLeft(CellStyle.BORDER_THIN);//å·¦è¾¹æ¡†    
+        style.setBorderTop(CellStyle.BORDER_THIN);//ä¸Šè¾¹æ¡†    
+        style.setBorderRight(CellStyle.BORDER_THIN);//å³è¾¹æ¡†   
         return style;
     }
 	/**
-	 * É¾³ıÎÄ¼ş
+	 * åˆ é™¤æ–‡ä»¶
 	 * @return true|false
 	 */
     public boolean deleteExcel(){
     	boolean flag = false;
     	File file = new File(this.fileDir);
-    	// ÅĞ¶ÏÄ¿Â¼»òÎÄ¼şÊÇ·ñ´æÔÚ  
-        if (!file.exists()) {  // ²»´æÔÚ·µ»Ø false  
+    	// åˆ¤æ–­ç›®å½•æˆ–æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
+        if (!file.exists()) {  // ä¸å­˜åœ¨è¿”å› false  
             return flag;  
         } else {  
-            // ÅĞ¶ÏÊÇ·ñÎªÎÄ¼ş  
-            if (file.isFile()) {  // ÎªÎÄ¼şÊ±µ÷ÓÃÉ¾³ıÎÄ¼ş·½·¨  
+            // åˆ¤æ–­æ˜¯å¦ä¸ºæ–‡ä»¶  
+            if (file.isFile()) {  // ä¸ºæ–‡ä»¶æ—¶è°ƒç”¨åˆ é™¤æ–‡ä»¶æ–¹æ³•  
                 file.delete();
                 flag = true;
             } 
@@ -313,19 +313,19 @@ public class PoiExcelExport {
         return flag;
     }
     /**
-	 * É¾³ıÎÄ¼ş
-	 * @param path Â·¾¶
+	 * åˆ é™¤æ–‡ä»¶
+	 * @param path è·¯å¾„
 	 * @return true|false
 	 */
     public boolean deleteExcel(String path){
     	boolean flag = false;
     	File file = new File(path);
-    	// ÅĞ¶ÏÄ¿Â¼»òÎÄ¼şÊÇ·ñ´æÔÚ  
-        if (!file.exists()) {  // ²»´æÔÚ·µ»Ø false  
+    	// åˆ¤æ–­ç›®å½•æˆ–æ–‡ä»¶æ˜¯å¦å­˜åœ¨  
+        if (!file.exists()) {  // ä¸å­˜åœ¨è¿”å› false  
             return flag;  
         } else {  
-            // ÅĞ¶ÏÊÇ·ñÎªÎÄ¼ş  
-            if (file.isFile()) {  // ÎªÎÄ¼şÊ±µ÷ÓÃÉ¾³ıÎÄ¼ş·½·¨  
+            // åˆ¤æ–­æ˜¯å¦ä¸ºæ–‡ä»¶  
+            if (file.isFile()) {  // ä¸ºæ–‡ä»¶æ—¶è°ƒç”¨åˆ é™¤æ–‡ä»¶æ–¹æ³•  
                 file.delete();
                 flag = true;
             } 

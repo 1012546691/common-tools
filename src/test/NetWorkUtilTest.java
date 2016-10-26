@@ -5,9 +5,9 @@ import util.NetWorkUtil;
 public class NetWorkUtilTest {
 
 	public static void main(String[] args) {
-		//ÊÇ·ñ¿ÉÒÔÁ¬½Óµ½ÍâÍø
+		//æ˜¯å¦å¯ä»¥è¿æ¥åˆ°å¤–ç½‘
 		System.out.println(NetWorkUtil.isConnectOuterNet());
-		//ÊÇ·ñ¿ÉÒÔÁ¬½Óµ½Ö¸¶¨ÍøÂç
+		//æ˜¯å¦å¯ä»¥è¿æ¥åˆ°æŒ‡å®šç½‘ç»œ
 		System.out.println(NetWorkUtil.isConnectNet("www.hao123.com"));
 
 	}

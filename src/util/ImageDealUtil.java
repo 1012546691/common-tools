@@ -12,22 +12,22 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 /**
- * Í¼Ïñ´¦ÀíÀà.
+ * å›¾åƒå¤„ç†ç±».
  * @author nagsh
  * @version 1.0
  */
 public class ImageDealUtil {
 
-    String openUrl; // Ô­Ê¼Í¼Æ¬´ò¿ªÂ·¾¶
-    String saveUrl; // ĞÂÍ¼±£´æÂ·¾¶
-    String saveName; // ĞÂÍ¼Ãû³Æ
-    String suffix; // ĞÂÍ¼ÀàĞÍ Ö»Ö§³Ögif,jpg,png
+    String openUrl; // åŸå§‹å›¾ç‰‡æ‰“å¼€è·¯å¾„
+    String saveUrl; // æ–°å›¾ä¿å­˜è·¯å¾„
+    String saveName; // æ–°å›¾åç§°
+    String suffix; // æ–°å›¾ç±»å‹ åªæ”¯æŒgif,jpg,png
     /**
      * 
-     * @param openUrl Ô­Ê¼Í¼Æ¬´ò¿ªÂ·¾¶.
-     * @param saveUrl ĞÂÍ¼±£´æÂ·¾¶.
-     * @param saveName ĞÂÍ¼Ãû³Æ.
-     * @param suffix ĞÂÍ¼ÀàĞÍ Ö»Ö§³Ögif,jpg,png.
+     * @param openUrl åŸå§‹å›¾ç‰‡æ‰“å¼€è·¯å¾„.
+     * @param saveUrl æ–°å›¾ä¿å­˜è·¯å¾„.
+     * @param saveName æ–°å›¾åç§°.
+     * @param suffix æ–°å›¾ç±»å‹ åªæ”¯æŒgif,jpg,png.
      */
     public ImageDealUtil(String openUrl, String saveUrl, String saveName,
             String suffix) {
@@ -38,12 +38,12 @@ public class ImageDealUtil {
     }
 
     /**
-     * Í¼Æ¬Ëõ·Å.
+     * å›¾ç‰‡ç¼©æ”¾.
      * 
      * @param width
-     *            ĞèÒªµÄ¿í¶È.
+     *            éœ€è¦çš„å®½åº¦.
      * @param height
-     *            ĞèÒªµÄ¸ß¶È.
+     *            éœ€è¦çš„é«˜åº¦.
      * @throws Exception
      */
     public void zoom(int width, int height) throws Exception {
@@ -52,10 +52,10 @@ public class ImageDealUtil {
 
         File file = new File(openUrl);
         if (!file.isFile()) {
-            throw new Exception("ImageDeal>>>" + file + " ²»ÊÇÒ»¸öÍ¼Æ¬ÎÄ¼ş!");
+            throw new Exception("ImageDeal>>>" + file + " ä¸æ˜¯ä¸€ä¸ªå›¾ç‰‡æ–‡ä»¶!");
         }
-        BufferedImage bi = ImageIO.read(file); // ¶ÁÈ¡¸ÃÍ¼Æ¬
-        // ¼ÆËãxÖáyÖáËõ·Å±ÈÀı--ÈçĞèµÈ±ÈÀıËõ·Å£¬ÔÚµ÷ÓÃÖ®Ç°È·±£²ÎÊıwidthºÍheightÊÇµÈ±ÈÀı±ä»¯µÄ
+        BufferedImage bi = ImageIO.read(file); // è¯»å–è¯¥å›¾ç‰‡
+        // è®¡ç®—xè½´yè½´ç¼©æ”¾æ¯”ä¾‹--å¦‚éœ€ç­‰æ¯”ä¾‹ç¼©æ”¾ï¼Œåœ¨è°ƒç”¨ä¹‹å‰ç¡®ä¿å‚æ•°widthå’Œheightæ˜¯ç­‰æ¯”ä¾‹å˜åŒ–çš„
         sx = (double) width / bi.getWidth();
         sy = (double) height / bi.getHeight();
 
@@ -64,7 +64,7 @@ public class ImageDealUtil {
         File sf = new File(saveUrl, saveName + "." + suffix);
         Image zoomImage = op.filter(bi, null);
         try {
-            ImageIO.write((BufferedImage) zoomImage, suffix, sf); // ±£´æÍ¼Æ¬
+            ImageIO.write((BufferedImage) zoomImage, suffix, sf); // ä¿å­˜å›¾ç‰‡
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,30 +72,30 @@ public class ImageDealUtil {
     }
 
     /**
-     * Ğı×ª
+     * æ—‹è½¬
      * 
      * @param degree
-     *            Ğı×ª½Ç¶È.
+     *            æ—‹è½¬è§’åº¦.
      * @throws Exception
      */
     public void spin(int degree) throws Exception {
-        int swidth = 0; // Ğı×ªºóµÄ¿í¶È
-        int sheight = 0; // Ğı×ªºóµÄ¸ß¶È
-        int x; // Ô­µãºá×ø±ê
-        int y; // Ô­µã×İ×ø±ê
+        int swidth = 0; // æ—‹è½¬åçš„å®½åº¦
+        int sheight = 0; // æ—‹è½¬åçš„é«˜åº¦
+        int x; // åŸç‚¹æ¨ªåæ ‡
+        int y; // åŸç‚¹çºµåæ ‡
 
         File file = new File(openUrl);
         if (!file.isFile()) {
-            throw new Exception("ImageDeal>>>" + file + " ²»ÊÇÒ»¸öÍ¼Æ¬ÎÄ¼ş!");
+            throw new Exception("ImageDeal>>>" + file + " ä¸æ˜¯ä¸€ä¸ªå›¾ç‰‡æ–‡ä»¶!");
         }
-        BufferedImage bi = ImageIO.read(file); // ¶ÁÈ¡¸ÃÍ¼Æ¬
-        // ´¦Àí½Ç¶È--È·¶¨Ğı×ª»¡¶È
+        BufferedImage bi = ImageIO.read(file); // è¯»å–è¯¥å›¾ç‰‡
+        // å¤„ç†è§’åº¦--ç¡®å®šæ—‹è½¬å¼§åº¦
         degree = degree % 360;
         if (degree < 0)
-            degree = 360 + degree;// ½«½Ç¶È×ª»»µ½0-360¶ÈÖ®¼ä
-        double theta = Math.toRadians(degree);// ½«½Ç¶È×ªÎª»¡¶È
+            degree = 360 + degree;// å°†è§’åº¦è½¬æ¢åˆ°0-360åº¦ä¹‹é—´
+        double theta = Math.toRadians(degree);// å°†è§’åº¦è½¬ä¸ºå¼§åº¦
 
-        // È·¶¨Ğı×ªºóµÄ¿íºÍ¸ß
+        // ç¡®å®šæ—‹è½¬åçš„å®½å’Œé«˜
         if (degree == 180 || degree == 0 || degree == 360) {
             swidth = bi.getWidth();
             sheight = bi.getHeight();
@@ -109,46 +109,46 @@ public class ImageDealUtil {
                     + bi.getHeight() * bi.getHeight()));
         }
 
-        x = (swidth / 2) - (bi.getWidth() / 2);// È·¶¨Ô­µã×ø±ê
+        x = (swidth / 2) - (bi.getWidth() / 2);// ç¡®å®šåŸç‚¹åæ ‡
         y = (sheight / 2) - (bi.getHeight() / 2);
 
         BufferedImage spinImage = new BufferedImage(swidth, sheight,
                 bi.getType());
-        // ÉèÖÃÍ¼Æ¬±³¾°ÑÕÉ«
+        // è®¾ç½®å›¾ç‰‡èƒŒæ™¯é¢œè‰²
         Graphics2D gs = (Graphics2D) spinImage.getGraphics();
         gs.setColor(Color.white);
-        gs.fillRect(0, 0, swidth, sheight);// ÒÔ¸ø¶¨ÑÕÉ«»æÖÆĞı×ªºóÍ¼Æ¬µÄ±³¾°
+        gs.fillRect(0, 0, swidth, sheight);// ä»¥ç»™å®šé¢œè‰²ç»˜åˆ¶æ—‹è½¬åå›¾ç‰‡çš„èƒŒæ™¯
 
         AffineTransform at = new AffineTransform();
-        at.rotate(theta, swidth / 2, sheight / 2);// Ğı×ªÍ¼Ïó
+        at.rotate(theta, swidth / 2, sheight / 2);// æ—‹è½¬å›¾è±¡
         at.translate(x, y);
         AffineTransformOp op = new AffineTransformOp(at,
                 AffineTransformOp.TYPE_BICUBIC);
         spinImage = op.filter(bi, spinImage);
         File sf = new File(saveUrl, saveName + "." + suffix);
-        ImageIO.write(spinImage, suffix, sf); // ±£´æÍ¼Æ¬
+        ImageIO.write(spinImage, suffix, sf); // ä¿å­˜å›¾ç‰‡
 
     }
     /**
-     * ÂíÈü¿Ë»¯.
-     * @param size  ÂíÈü¿Ë³ß´ç£¬¼´Ã¿¸ö¾ØĞÎµÄ³¤¿í.
-     * @return  ÊÇ·ñ³É¹¦
+     * é©¬èµ›å…‹åŒ–.
+     * @param size  é©¬èµ›å…‹å°ºå¯¸ï¼Œå³æ¯ä¸ªçŸ©å½¢çš„é•¿å®½.
+     * @return  æ˜¯å¦æˆåŠŸ
      * @throws Exception
      */
     public boolean mosaic(int size) throws Exception {
         File file = new File(openUrl);
         if (!file.isFile()) {
-            throw new Exception("ImageDeal>>>" + file + " ²»ÊÇÒ»¸öÍ¼Æ¬ÎÄ¼ş!");
+            throw new Exception("ImageDeal>>>" + file + " ä¸æ˜¯ä¸€ä¸ªå›¾ç‰‡æ–‡ä»¶!");
         }
-        BufferedImage bi = ImageIO.read(file); // ¶ÁÈ¡¸ÃÍ¼Æ¬
+        BufferedImage bi = ImageIO.read(file); // è¯»å–è¯¥å›¾ç‰‡
         BufferedImage spinImage = new BufferedImage(bi.getWidth(),
                 bi.getHeight(), bi.TYPE_INT_RGB);
-        if (bi.getWidth() < size || bi.getHeight() < size || size <= 0) { // ÂíÈü¿Ë¸ñ³ß´çÌ«´ó»òÌ«Ğ¡
+        if (bi.getWidth() < size || bi.getHeight() < size || size <= 0) { // é©¬èµ›å…‹æ ¼å°ºå¯¸å¤ªå¤§æˆ–å¤ªå°
             return false;
         }
 
-        int xcount = 0; // ·½Ïò»æÖÆ¸öÊı
-        int ycount = 0; // y·½Ïò»æÖÆ¸öÊı
+        int xcount = 0; // æ–¹å‘ç»˜åˆ¶ä¸ªæ•°
+        int ycount = 0; // yæ–¹å‘ç»˜åˆ¶ä¸ªæ•°
         if (bi.getWidth() % size == 0) {
             xcount = bi.getWidth() / size;
         } else {
@@ -159,22 +159,22 @@ public class ImageDealUtil {
         } else {
             ycount = bi.getHeight() / size + 1;
         }
-        int x = 0;   //×ø±ê
+        int x = 0;   //åæ ‡
         int y = 0;
-        // »æÖÆÂíÈü¿Ë(»æÖÆ¾ØĞÎ²¢Ìî³äÑÕÉ«)
+        // ç»˜åˆ¶é©¬èµ›å…‹(ç»˜åˆ¶çŸ©å½¢å¹¶å¡«å……é¢œè‰²)
         Graphics gs = spinImage.getGraphics();
         for (int i = 0; i < xcount; i++) {
             for (int j = 0; j < ycount; j++) {
-                //ÂíÈü¿Ë¾ØĞÎ¸ñ´óĞ¡
+                //é©¬èµ›å…‹çŸ©å½¢æ ¼å¤§å°
                  int mwidth = size;
                  int mheight = size;
-                 if(i==xcount-1){   //ºáÏò×îºóÒ»¸ö±È½ÏÌØÊâ£¬¿ÉÄÜ²»¹»Ò»¸ösize
+                 if(i==xcount-1){   //æ¨ªå‘æœ€åä¸€ä¸ªæ¯”è¾ƒç‰¹æ®Šï¼Œå¯èƒ½ä¸å¤Ÿä¸€ä¸ªsize
                      mwidth = bi.getWidth()-x;
                  }
-                 if(j == ycount-1){  //Í¬Àí
+                 if(j == ycount-1){  //åŒç†
                      mheight =bi.getHeight()-y;
                  }
-              // ¾ØĞÎÑÕÉ«È¡ÖĞĞÄÏñËØµãRGBÖµ
+              // çŸ©å½¢é¢œè‰²å–ä¸­å¿ƒåƒç´ ç‚¹RGBå€¼
                 int centerX = x;
                 int centerY = y;
                 if (mwidth % 2 == 0) {
@@ -190,14 +190,14 @@ public class ImageDealUtil {
                 Color color = new Color(bi.getRGB(centerX, centerY));
                 gs.setColor(color);
                 gs.fillRect(x, y, mwidth, mheight);
-                y = y + size;// ¼ÆËãÏÂÒ»¸ö¾ØĞÎµÄy×ø±ê
+                y = y + size;// è®¡ç®—ä¸‹ä¸€ä¸ªçŸ©å½¢çš„yåæ ‡
             }
-            y = 0;// »¹Ô­y×ø±ê
-            x = x + size;// ¼ÆËãx×ø±ê
+            y = 0;// è¿˜åŸyåæ ‡
+            x = x + size;// è®¡ç®—xåæ ‡
         }
         gs.dispose();
         File sf = new File(saveUrl, saveName + "." + suffix);
-        ImageIO.write(spinImage, suffix, sf); // ±£´æÍ¼Æ¬
+        ImageIO.write(spinImage, suffix, sf); // ä¿å­˜å›¾ç‰‡
         return true;
     }
 

@@ -9,16 +9,16 @@ import java.util.GregorianCalendar;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /**
- * Ê±¼ä¹¤¾ßÀà
+ * æ—¶é—´å·¥å…·ç±»
  * @author nagsh
  * @version 1.0
  */
 public class TimeUtil {
 
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼ä.
-	 * @param format ¸ñÊ½,Èç yyyy-MM-dd hh:mm:ss
-	 * @return µ±Ç°Ê±¼ä
+	 * èŽ·å–å½“å‰æ—¶é—´.
+	 * @param format æ ¼å¼,å¦‚ yyyy-MM-dd hh:mm:ss
+	 * @return å½“å‰æ—¶é—´
 	 */
 	public static String getCurrentTime(String format){
 		DateFormat dateFormat = new SimpleDateFormat(format);
@@ -26,10 +26,10 @@ public class TimeUtil {
 		return dateStr;
 	}
 	/**
-	 * »ñÈ¡ÈÕÆÚÏà²îÌìÊý.
-	 * @param beginDateStr ¿ªÊ¼Ê±¼ä
-	 * @param endDateStr   ½áÊøÊ±¼ä
-	 * @return ÈÕÆÚÏà²îÌìÊý
+	 * èŽ·å–æ—¥æœŸç›¸å·®å¤©æ•°.
+	 * @param beginDateStr å¼€å§‹æ—¶é—´
+	 * @param endDateStr   ç»“æŸæ—¶é—´
+	 * @return æ—¥æœŸç›¸å·®å¤©æ•°
 	 */
 	public static long getDateSub(String beginDateStr,String endDateStr){
 		long day = 0;
@@ -46,9 +46,9 @@ public class TimeUtil {
 		return day;
 	}
     /**
-     * »ñÈ¡ÈÕÆÚÓëµ±Ç°ÈÕÆÚÏà²îµÄÌìÊý.
-     * @param beginDateStr  Ö¸¶¨ÈÕÆÚ
-     * @return ÈÕÆÚÓëµ±Ç°ÈÕÆÚÏà²îµÄÌìÊý
+     * èŽ·å–æ—¥æœŸä¸Žå½“å‰æ—¥æœŸç›¸å·®çš„å¤©æ•°.
+     * @param beginDateStr  æŒ‡å®šæ—¥æœŸ
+     * @return æ—¥æœŸä¸Žå½“å‰æ—¥æœŸç›¸å·®çš„å¤©æ•°
      */
 	public static long getDateSub(String beginDateStr){
 		long day = 0;
@@ -64,10 +64,10 @@ public class TimeUtil {
 		return day;
 	}
 	/**
-	 * »ñµÃ¸ø¶¨ÈÕÆÚµÄÇ°ºó¼¸ÌìµÄÈÕÆÚ.
-	 * @param dateStr  ÈÕÆÚ,Èç:2016-01-01
-	 * @param day  Ç°ºóÌìÊý Èç: 5 »ò -21
-	 * @return ¸ø¶¨ÈÕÆÚµÄÇ°ºó¼¸ÌìµÄÈÕÆÚ
+	 * èŽ·å¾—ç»™å®šæ—¥æœŸçš„å‰åŽå‡ å¤©çš„æ—¥æœŸ.
+	 * @param dateStr  æ—¥æœŸ,å¦‚:2016-01-01
+	 * @param day  å‰åŽå¤©æ•° å¦‚: 5 æˆ– -21
+	 * @return ç»™å®šæ—¥æœŸçš„å‰åŽå‡ å¤©çš„æ—¥æœŸ
 	 */
 	public static String getDate(String dateStr,int day){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -84,9 +84,9 @@ public class TimeUtil {
 		return dateStr;
 	}
 	/**
-	 * »ñµÃµ±Ç°ÈÕÆÚµÄÇ°ºó¼¸ÌìµÄÈÕÆÚ.
-	 * @param day  Ç°ºóÌìÊý Èç: 5 »ò -21
-	 * @return µ±Ç°ÈÕÆÚµÄÇ°ºó¼¸ÌìµÄÈÕÆÚ
+	 * èŽ·å¾—å½“å‰æ—¥æœŸçš„å‰åŽå‡ å¤©çš„æ—¥æœŸ.
+	 * @param day  å‰åŽå¤©æ•° å¦‚: 5 æˆ– -21
+	 * @return å½“å‰æ—¥æœŸçš„å‰åŽå‡ å¤©çš„æ—¥æœŸ
 	 */
 	public static String getDate(int day){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -100,10 +100,10 @@ public class TimeUtil {
 		return dateStr;
 	}
 	/**
-	 * ¸ø¶¨ÄêºÍÔÂ£¬»ñÈ¡¸ÃÔÂµÄµÚÒ»Ìì.
-	 * @param year Äê
-	 * @param month ÔÂ
-	 * @return ¸ñÊ½Îª:yyyy-MM-dd
+	 * ç»™å®šå¹´å’Œæœˆï¼ŒèŽ·å–è¯¥æœˆçš„ç¬¬ä¸€å¤©.
+	 * @param year å¹´
+	 * @param month æœˆ
+	 * @return æ ¼å¼ä¸º:yyyy-MM-dd
 	 */
 	public static String getFirstDayOfMonth(int year,int month){
 		Calendar calendar = Calendar.getInstance();
@@ -116,9 +116,9 @@ public class TimeUtil {
 	    return firstDayOfMonth;
 	}
 	/**
-	 * »ñÈ¡¸ø¶¨ÈÕÆÚËùÔÚÔÂµÄµÚÒ»Ìì.
+	 * èŽ·å–ç»™å®šæ—¥æœŸæ‰€åœ¨æœˆçš„ç¬¬ä¸€å¤©.
 	 * @param dateStr  yyyy-MM-dd
-	 * @return ¸ø¶¨ÈÕÆÚËùÔÚÔÂµÄµÚÒ»Ìì
+	 * @return ç»™å®šæ—¥æœŸæ‰€åœ¨æœˆçš„ç¬¬ä¸€å¤©
 	 */
 	public static String getFirstDayOfMonth(String dateStr){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -137,10 +137,10 @@ public class TimeUtil {
 		return firstDayOfMonth;
 	}
 	/**
-	 * ¸ø¶¨ÄêºÍÔÂ£¬»ñÈ¡¸ÃÔÂµÄ×îºóÒ»Ìì.
-	 * @param year Äê
-	 * @param month ÔÂ
-	 * @return ¸ñÊ½Îª:yyyy-MM-dd
+	 * ç»™å®šå¹´å’Œæœˆï¼ŒèŽ·å–è¯¥æœˆçš„æœ€åŽä¸€å¤©.
+	 * @param year å¹´
+	 * @param month æœˆ
+	 * @return æ ¼å¼ä¸º:yyyy-MM-dd
 	 */
 	public static String getLastDayOfMonth(int year,int month){
 		Calendar calendar = Calendar.getInstance();
@@ -153,9 +153,9 @@ public class TimeUtil {
 	    return lastDayOfMonth;
 	}
 	/**
-	 * »ñÈ¡¸ø¶¨ÈÕÆÚËùÔÚÔÂµÄ×îºóÒ»Ìì.
+	 * èŽ·å–ç»™å®šæ—¥æœŸæ‰€åœ¨æœˆçš„æœ€åŽä¸€å¤©.
 	 * @param dateStr  yyyy-MM-dd
-	 * @return ¸ø¶¨ÈÕÆÚËùÔÚÔÂµÄ×îºóÒ»Ìì
+	 * @return ç»™å®šæ—¥æœŸæ‰€åœ¨æœˆçš„æœ€åŽä¸€å¤©
 	 */
 	public static String getLastDayOfMonth(String dateStr){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -174,9 +174,9 @@ public class TimeUtil {
 		return firstDayOfMonth;
 	}
 	/**
-	 * ÅÐ¶Ï¸ø¶¨×Ö·û´®ÊÇ·ñÎªyyyy-MM-dd¸ñÊ½
-	 * @param dateStr ÈÕÆÚ×Ö·û´®
-	 * @return ¸ø¶¨×Ö·û´®ÊÇ·ñÎªyyyy-MM-dd¸ñÊ½
+	 * åˆ¤æ–­ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸ºyyyy-MM-ddæ ¼å¼
+	 * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+	 * @return ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸ºyyyy-MM-ddæ ¼å¼
 	 */
     public static boolean is_yyyyMMdd(String dateStr){
     	String rexp = "^((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8]))))))";
@@ -186,9 +186,9 @@ public class TimeUtil {
     	return dateFlag;
     }
     /**
-	 * ÅÐ¶Ï¸ø¶¨×Ö·û´®ÊÇ·ñÎªyyyy-MM-dd hh:mm:ss¸ñÊ½
-	 * @param dateStr ÈÕÆÚ×Ö·û´®
-	 * @return ¸ø¶¨×Ö·û´®ÊÇ·ñÎªyyyy-MM-dd hh:mm:ss¸ñÊ½
+	 * åˆ¤æ–­ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸ºyyyy-MM-dd hh:mm:ssæ ¼å¼
+	 * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+	 * @return ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸ºyyyy-MM-dd hh:mm:ssæ ¼å¼
 	 */
     public static boolean is_yyyyMMddhhmmss(String dateStr){
     	String rexp = "^(((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8])))))) ((20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9]){1})";
@@ -198,9 +198,9 @@ public class TimeUtil {
     	return dateFlag;
     }
     /**
-     * ÅÐ¶Ï¸ø¶¨×Ö·û´®ÊÇ·ñÎª yyyy-MM-dd hh:mm¸ñÊ½
-     * @param dateStr ÈÕÆÚ×Ö·û´®
-     * @return ¸ø¶¨×Ö·û´®ÊÇ·ñÎª yyyy-MM-dd hh:mm¸ñÊ½
+     * åˆ¤æ–­ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸º yyyy-MM-dd hh:mmæ ¼å¼
+     * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+     * @return ç»™å®šå­—ç¬¦ä¸²æ˜¯å¦ä¸º yyyy-MM-dd hh:mmæ ¼å¼
      */
     public static boolean is_yyyyMMddhhmm(String dateStr){
     	String rexp = "^(((\\d{2}(([02468][048])|([13579][26]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])))))|(\\d{2}(([02468][1235679])|([13579][01345789]))[\\-\\/\\s]?((((0?[13578])|(1[02]))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(3[01])))|(((0?[469])|(11))[\\-\\/\\s]?((0?[1-9])|([1-2][0-9])|(30)))|(0?2[\\-\\/\\s]?((0?[1-9])|(1[0-9])|(2[0-8])))))) ((20|21|22|23|[0-1][0-9]):[0-5][0-9]){1})";
@@ -210,9 +210,9 @@ public class TimeUtil {
     	return dateFlag;
     }
     /**
-     * ÅÐ¶Ï¸ø¶¨µÄ×Ö·û´®ÊÇ·ñÎªhh:mm¸ñÊ½
-     * @param dateStr ÈÕÆÚ×Ö·û´®
-     * @return ¸ø¶¨µÄ×Ö·û´®ÊÇ·ñÎªhh:mm¸ñÊ½
+     * åˆ¤æ–­ç»™å®šçš„å­—ç¬¦ä¸²æ˜¯å¦ä¸ºhh:mmæ ¼å¼
+     * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+     * @return ç»™å®šçš„å­—ç¬¦ä¸²æ˜¯å¦ä¸ºhh:mmæ ¼å¼
      */
     public static boolean is_hhmm(String dateStr){
     	String rexp = "^(((20|21|22|23|[0-1][0-9]):[0-5][0-9]){1})";
@@ -222,9 +222,9 @@ public class TimeUtil {
     	return dateFlag;
     }
     /**
-     * ÅÐ¶Ï¸ø¶¨µÄ×Ö·û´®ÊÇ·ñÎªhh:mm:ss¸ñÊ½
-     * @param dateStr ÈÕÆÚ×Ö·û´®
-     * @return ¸ø¶¨µÄ×Ö·û´®ÊÇ·ñÎªhh:mm:ss¸ñÊ½
+     * åˆ¤æ–­ç»™å®šçš„å­—ç¬¦ä¸²æ˜¯å¦ä¸ºhh:mm:ssæ ¼å¼
+     * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+     * @return ç»™å®šçš„å­—ç¬¦ä¸²æ˜¯å¦ä¸ºhh:mm:ssæ ¼å¼
      */ 
     public static boolean is_hhmmss(String dateStr){
     	String rexp = "^(((20|21|22|23|[0-1][0-9]):[0-5][0-9]:[0-5][0-9]){1})";
@@ -234,9 +234,9 @@ public class TimeUtil {
     	return dateFlag;
     }
 	/**
-	 * »ñÈ¡¸ø¶¨ÈÕÆÚÊÇÖÜ¼¸.
-	 * @param dateStr ÈÕÆÚ×Ö·û´®
-	 * @return ¸ø¶¨ÈÕÆÚÊÇÖÜ¼¸
+	 * èŽ·å–ç»™å®šæ—¥æœŸæ˜¯å‘¨å‡ .
+	 * @param dateStr æ—¥æœŸå­—ç¬¦ä¸²
+	 * @return ç»™å®šæ—¥æœŸæ˜¯å‘¨å‡ 
 	 */
     public static Integer getWeek(String dateStr){
     	DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -253,10 +253,10 @@ public class TimeUtil {
 		return week;
     }
     /**
-     * ±È½ÏÁ½¸öÈÕÆÚµÄÏÈºóË³Ðò
-     * @param formatStr   Èçyyyy-MM-dd
-     * @param before   Èç12:10
-     * @param end   Èç09:00
+     * æ¯”è¾ƒä¸¤ä¸ªæ—¥æœŸçš„å…ˆåŽé¡ºåº
+     * @param formatStr   å¦‚yyyy-MM-dd
+     * @param before   å¦‚12:10
+     * @param end   å¦‚09:00
      * @return end>before
      */
     public static boolean compareTime(String formatStr,String before,String end){

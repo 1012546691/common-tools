@@ -19,13 +19,13 @@ public class Object2JsonTest {
 		user2.setUsername("sa");
 		user2.setPassword("bbb");
 		list.add(user);list.add(user2);
-		//将对象转为json数组格式的字符串
+		//灏嗗璞¤浆涓簀son鏁扮粍鏍煎紡鐨勫瓧绗︿覆
 		System.out.println(o.getJSONArrayFromObject(user));
-		//将对象转为json对象格式的字符串
+		//灏嗗璞¤浆涓簀son瀵硅薄鏍煎紡鐨勫瓧绗︿覆
 		System.out.println(o.getJSONObjectFromObject(user));
-		//将list转为json数组格式的字符串
+		//灏唋ist杞负json鏁扮粍鏍煎紡鐨勫瓧绗︿覆
 		System.out.println(o.getJSONArrayFromList(list));
-		//将list转为json对象格式的字符串
+		//灏唋ist杞负json瀵硅薄鏍煎紡鐨勫瓧绗︿覆
 		System.out.println(o.getJSONObjectFromList(list));
 		Map<String,User> map = new HashMap();
 		map.put("u1", user);

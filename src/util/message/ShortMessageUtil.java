@@ -11,10 +11,10 @@ import org.apache.commons.httpclient.methods.PostMethod;
 public class ShortMessageUtil {
 
 	/**
-	 * ·¢ËÍ¶ÌĞÅ
+	 * å‘é€çŸ­ä¿¡
 	 * 
 	 * @param shortMessageInfo
-	 *            ¶ÌĞÅÏà¹ØÅäÖÃĞÅÏ¢
+	 *            çŸ­ä¿¡ç›¸å…³é…ç½®ä¿¡æ¯
 	 * @throws HttpException
 	 * @throws IOException
 	 */
@@ -25,14 +25,14 @@ public class ShortMessageUtil {
 		post.addRequestHeader(
 				"Content-Type",
 				"application/x-www-form-urlencoded;charset="
-						+ shortMessageInfo.getCharset());// ÔÚÍ·ÎÄ¼şÖĞÉèÖÃ×ªÂë
+						+ shortMessageInfo.getCharset());// åœ¨å¤´æ–‡ä»¶ä¸­è®¾ç½®è½¬ç 
 		NameValuePair[] data = {
-				new NameValuePair("Uid", shortMessageInfo.getUid()), // ×¢²áµÄÓÃ»§Ãû
-				new NameValuePair("Key", shortMessageInfo.getKey()), // ×¢²á³É¹¦ºó,µÇÂ¼ÍøÕ¾Ê¹ÓÃµÄÃÜÔ¿
-				new NameValuePair("smsMob", shortMessageInfo.getSmsMob()), // ÊÖ»úºÅÂë
-				new NameValuePair("smsText", shortMessageInfo.getSmsText()) };// ÉèÖÃ¶ÌĞÅÄÚÈİ
+				new NameValuePair("Uid", shortMessageInfo.getUid()), // æ³¨å†Œçš„ç”¨æˆ·å
+				new NameValuePair("Key", shortMessageInfo.getKey()), // æ³¨å†ŒæˆåŠŸå,ç™»å½•ç½‘ç«™ä½¿ç”¨çš„å¯†é’¥
+				new NameValuePair("smsMob", shortMessageInfo.getSmsMob()), // æ‰‹æœºå·ç 
+				new NameValuePair("smsText", shortMessageInfo.getSmsText()) };// è®¾ç½®çŸ­ä¿¡å†…å®¹
 		post.setRequestBody(data);
-		// ·¢ËÍ
+		// å‘é€
 		client.executeMethod(post);
 		int statusCode = post.getStatusCode();
 		ShortMessageResult result = new ShortMessageResult();
@@ -42,28 +42,28 @@ public class ShortMessageUtil {
 		String message = "";
 		switch (Integer.parseInt(code)) {
 		case -1:
-			message = "Ã»ÓĞ¸ÃÓÃ»§ÕË»§";
+			message = "æ²¡æœ‰è¯¥ç”¨æˆ·è´¦æˆ·";
 			break;
 		case -2:
-			message = "ÃÜÔ¿²»ÕıÈ·£¨²»ÊÇÓÃ»§ÃÜÂë£©";
+			message = "å¯†é’¥ä¸æ­£ç¡®ï¼ˆä¸æ˜¯ç”¨æˆ·å¯†ç ï¼‰";
 			break;
 		case -3:
-			message = "¶ÌĞÅÊıÁ¿²»×ã";
+			message = "çŸ­ä¿¡æ•°é‡ä¸è¶³";
 			break;
 		case -11:
-			message = "¶ÌĞÅÄÚÈİ³öÏÖ·Ç·¨×Ö·û";
+			message = "çŸ­ä¿¡å†…å®¹å‡ºç°éæ³•å­—ç¬¦";
 			break;
 		case -14:
-			message = "ÊÖ»úºÅÂëÎª¿Õ";
+			message = "æ‰‹æœºå·ç ä¸ºç©º";
 			break;
 		case -41:
-			message = "¶ÌĞÅÄÚÈİÎª¿Õ";
+			message = "çŸ­ä¿¡å†…å®¹ä¸ºç©º";
 			break;
 		case -42:
-			message = "¶ÌĞÅ·¢ËÍÊıÁ¿";
+			message = "çŸ­ä¿¡å‘é€æ•°é‡";
 			break;
 		default:
-			message = "·¢ËÍ³É¹¦";
+			message = "å‘é€æˆåŠŸ";
 			break;
 		}
 		result.setMessage(message);

@@ -12,7 +12,7 @@ public class ShortMessageInfo {
 	}
     /**
      * 
-     * @param uid 注册的用户名
+     * @param uid 娉ㄥ唽鐨勭敤鎴峰悕
      */
 	public void setUid(String uid) {
 		this.uid = uid;
@@ -23,7 +23,7 @@ public class ShortMessageInfo {
 	}
     /**
      * 
-     * @param key 接口秘钥(不是登录密码)
+     * @param key 鎺ュ彛绉橀挜(涓嶆槸鐧诲綍瀵嗙爜)
      */
 	public void setKey(String key) {
 		this.key = key;
@@ -34,7 +34,7 @@ public class ShortMessageInfo {
 	}
     /**
      * 
-     * @param smsMob 接收方手机号
+     * @param smsMob 鎺ユ敹鏂规墜鏈哄彿
      */
 	public void setSmsMob(String smsMob) {
 		this.smsMob = smsMob;
@@ -45,7 +45,7 @@ public class ShortMessageInfo {
 	}
     /**
      * 
-     * @param charset 编码格式
+     * @param charset 缂栫爜鏍煎紡
      */
 	public void setCharset(String charset) {
 		this.charset = charset;
@@ -56,7 +56,7 @@ public class ShortMessageInfo {
 	}
     /**
      * 
-     * @param smsText 短信文本
+     * @param smsText 鐭俊鏂囨湰
      */
 	public void setSmsText(String smsText) {
 		this.smsText = smsText;

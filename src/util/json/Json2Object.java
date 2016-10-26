@@ -8,7 +8,7 @@ import java.util.Map;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 /**
- * json¸ñÊ½Êı¾İ×ªÎª¶ÔÏó
+ * jsonæ ¼å¼æ•°æ®è½¬ä¸ºå¯¹è±¡
  * @author nagsh
  * @version 1.0
  */
@@ -16,10 +16,10 @@ public class Json2Object {
 
 
 	/**
-	 * ½«json¶ÔÏó(Ö»ÓĞÒ»×éÖµ)×ªÎªjavabean
-	 * @param json Èç {"password":"aaa","username":"admin"}
-	 * @param ObjectClass Òª×ªµÄ¶ÔÏóµÄclass
-	 * @return javabean¶ÔÏó
+	 * å°†jsonå¯¹è±¡(åªæœ‰ä¸€ç»„å€¼)è½¬ä¸ºjavabean
+	 * @param json å¦‚ {"password":"aaa","username":"admin"}
+	 * @param ObjectClass è¦è½¬çš„å¯¹è±¡çš„class
+	 * @return javabeanå¯¹è±¡
 	 */
 	public Object getObjectFromJSONObject(String json,Class ObjectClass) {  
 		Object object = new Object();
@@ -28,13 +28,13 @@ public class Json2Object {
 		return object;
 	}
     /**
-     * ½«json¶ÔÏó(Ö»ÓĞÒ»×éÖµ)×ªÎªmap
-     * @param json Èç {"password":"aaa","username":"admin"}
+     * å°†jsonå¯¹è±¡(åªæœ‰ä¸€ç»„å€¼)è½¬ä¸ºmap
+     * @param json å¦‚ {"password":"aaa","username":"admin"}
      * @return map
      */
 	public Map<String, ?> getMapFromJSONObject(String json) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		// ×îÍâ²ã½âÎö
+		// æœ€å¤–å±‚è§£æ
 		JSONObject object = JSONObject.fromObject(json);
 		for (Object k : object.keySet()) {
 			Object v = object.get(k);
@@ -44,35 +44,35 @@ public class Json2Object {
 	}
 	
 	/**
-	 *  ½«json¶ÔÏó×ªÎªmap ÄÚ²¿¿ÉÇ¶Ì×
-	 * @param json Èç:{"height":1,"width":1,"location":[{ "¶¥²¿":"3"},{"µ×²¿":"1" },{"×ó²à":"2" },{ "ÓÒ²à":"1"},{"Ğü¸¡":"4" }],
+	 *  å°†jsonå¯¹è±¡è½¬ä¸ºmap å†…éƒ¨å¯åµŒå¥—
+	 * @param json å¦‚:{"height":1,"width":1,"location":[{ "é¡¶éƒ¨":"3"},{"åº•éƒ¨":"1" },{"å·¦ä¾§":"2" },{ "å³ä¾§":"1"},{"æ‚¬æµ®":"4" }],
      *                  "type":[{"1":"1"},{"2":"2" },{"3":"4" },{"4":"4"}]}
 	 * @return map
 	 */
     public Map<String, Object> getMappFromJSONObject2(String json) {
         Map<String, Object> map = new HashMap<String, Object>();
-        // ×îÍâ²ã½âÎö
+        // æœ€å¤–å±‚è§£æ
         JSONObject object = object = JSONObject.fromObject(json);
         for (Object k : object.keySet()) {
             Object v = object.get(k);
             map.put(k.toString(), v);
         }
         Map<String, Object> map2 = new HashMap<String, Object>();
-        //µÚ¶ş²ã½âÎö µÚ¶ş²ã¿ÉÄÜÊÇ Ò²¿ÉÄÜ²»ÊÇ
+        //ç¬¬äºŒå±‚è§£æ ç¬¬äºŒå±‚å¯èƒ½æ˜¯ ä¹Ÿå¯èƒ½ä¸æ˜¯
         for(Map.Entry<String, Object> entry:map.entrySet()){
             try {
-            	org.json.JSONArray array = new org.json.JSONArray(entry.getValue().toString());  //ÅĞ¶ÏÊÇ·ñÊÇjsonÊı×é
+            	org.json.JSONArray array = new org.json.JSONArray(entry.getValue().toString());  //åˆ¤æ–­æ˜¯å¦æ˜¯jsonæ•°ç»„
 
-                //ÊÇjsonÊı×é
+                //æ˜¯jsonæ•°ç»„
                 for (int i = 0; i < array.length(); i++) {
-                    org.json.JSONObject object2 = array.getJSONObject(i);//jsonÊı×é¶ÔÏó
-                    JSONObject object3 = JSONObject.fromObject(object2.toString());  //json¶ÔÏó
+                    org.json.JSONObject object2 = array.getJSONObject(i);//jsonæ•°ç»„å¯¹è±¡
+                    JSONObject object3 = JSONObject.fromObject(object2.toString());  //jsonå¯¹è±¡
                     for (Object k : object3.keySet()) {
                         Object v = object3.get(k);
                         map2.put(k.toString(), v);
                     }
                 }
-            } catch (Exception e) {  //²»ÊÇjson´®Êı×é
+            } catch (Exception e) {  //ä¸æ˜¯jsonä¸²æ•°ç»„
                 map2.put(entry.getKey(), entry.getValue());
             }
         }
@@ -80,9 +80,9 @@ public class Json2Object {
     }
 
 	/**
-	 * ½«jsonÊı×é×ªÎªlist
-	 * @param json Èç:[{"password":"aaa","username":"admin"},{"password":"bbb","username":"sa"}]
-	 * @param ObjectClass Òª×ªµÄ¶ÔÏóµÄclass
+	 * å°†jsonæ•°ç»„è½¬ä¸ºlist
+	 * @param json å¦‚:[{"password":"aaa","username":"admin"},{"password":"bbb","username":"sa"}]
+	 * @param ObjectClass è¦è½¬çš„å¯¹è±¡çš„class
 	 * @return list
 	 */
 	public List<?> getListFromJsonArray(String json,Class ObjectClass) {    
@@ -91,10 +91,10 @@ public class Json2Object {
 		return list;
 	}
 	/**
-	 * ½«jsonÊı×é×ªÎªlist
-	 * @param json Èç:"[{\"personId\":\"1\",\"user\":{\"password\":\"aaa\",\"username\":\"admin\"}},{\"personId\":\"2\",\"user\":{\"password\":\"bbb\",\"username\":\"sa\"}}]";
-	 * @param className Òª×ªµÄ¶ÔÏóµÄclass
-	 * @param classMap ³ÉÔ±ÖĞjavabeanµÄclass
+	 * å°†jsonæ•°ç»„è½¬ä¸ºlist
+	 * @param json å¦‚:"[{\"personId\":\"1\",\"user\":{\"password\":\"aaa\",\"username\":\"admin\"}},{\"personId\":\"2\",\"user\":{\"password\":\"bbb\",\"username\":\"sa\"}}]";
+	 * @param className è¦è½¬çš„å¯¹è±¡çš„class
+	 * @param classMap æˆå‘˜ä¸­javabeançš„class
 	 * @return list
 	 */
 	public List<?> getListFromJsonArray(String json,Class className,Map<String, Class> classMap) {  

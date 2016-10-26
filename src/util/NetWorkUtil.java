@@ -6,18 +6,17 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 /**
- * ÍøÂçÏà¹Ø¹¤¾ßÀà
+ * ç½‘ç»œç›¸å…³å·¥å…·ç±».
  * @author nagsh
  * @version 1.0
- * @since 2016-10-15
  */
 public class NetWorkUtil {
-	 //ÍâÍøµØÖ·
+	 //å¤–ç½‘åœ°å€
 	 private static String address = "www.baidu.com";
 	/**
-	 * ping µØÖ· ÅĞ¶ÏÊÇ·ñ¿ÉÒÔpingÍ¨
-	 * @param address ÒªpingµÄµØÖ·
-	 * @return true:¿ÉÒÔpingÍ¨  false:ping²»Í¨
+	 * ping åœ°å€ åˆ¤æ–­æ˜¯å¦å¯ä»¥pingé€š.
+	 * @param address è¦pingçš„åœ°å€.
+	 * @return true:å¯ä»¥pingé€š  false:pingä¸é€š.
 	 */
 	 private static boolean isConnect(String address){
 	    	boolean connect = false;
@@ -40,10 +39,10 @@ public class NetWorkUtil {
 		        if (null != sb && !sb.toString().equals("")) { 
 		            String logString = ""; 
 		            if (sb.toString().indexOf("TTL") > 0) { 
-		                // ÍøÂç³©Í¨  
+		                // ç½‘ç»œç•…é€š  
 		            	connect = true;
 		            } else { 
-		                // ÍøÂç²»³©Í¨  
+		                // ç½‘ç»œä¸ç•…é€š  
 		            	connect = false;
 		            } 
 		        } 
@@ -54,19 +53,19 @@ public class NetWorkUtil {
 	    }
 
 	 /**
-	  * ÊÇ·ñ¿ÉÒÔÁ¬½Óµ½ÍâÍø.
-	  * Ä¬ÈÏpingµÄwww.baid.com
-	  * @return
+	  * æ˜¯å¦å¯ä»¥è¿æ¥åˆ°å¤–ç½‘ é»˜è®¤pingçš„www.baidu.com.
+	  * @return true å¯ä»¥è¿æ¥
+	  *         false æ— æ³•è¿æ¥
 	  */
 	 public static boolean isConnectOuterNet(){
 		 return isConnect(address);
 	 }
 	
 	 /**
-	  * ÊÇ·ñ¿ÉÒÔÁ¬½Óµ½Ö¸¶¨ÍøÂç.
-	  * µ±°Ù¶Èµ¹±Õºó¿ÉÒÔµ÷ÓÃ´Ë·½·¨
-	  * @param address ÓĞĞ§µÄÍâÍøµØÖ·
-	  * @return
+	  * æ˜¯å¦å¯ä»¥è¿æ¥åˆ°æŒ‡å®šç½‘ç»œ å½“ç™¾åº¦å€’é—­åå¯ä»¥è°ƒç”¨æ­¤æ–¹æ³•åˆ¤æ–­æ˜¯å¦å¯ä»¥è¿æ¥åˆ°å¤–ç½‘. 
+	  * @param address æœ‰æ•ˆçš„å¤–ç½‘åœ°å€.
+	  * @return true å¯ä»¥è¿æ¥
+	  *         false æ— æ³•è¿æ¥
 	  */
 	 public static boolean isConnectNet(String address){
 		 return isConnect(address);

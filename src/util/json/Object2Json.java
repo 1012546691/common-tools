@@ -7,43 +7,43 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
- * ½«¶ÔÏó×ª»»Îªjson×Ö·û´®.
+ * å°†å¯¹è±¡è½¬æ¢ä¸ºjsonå­—ç¬¦ä¸².
  * @author nagsh
  * @version 1.0
  */
 public class Object2Json {
 
 	/**
-	 * ½«javabean×ª»»ÎªjsonÊı×é¸ñÊ½µÄ×Ö·û´®.
+	 * å°†javabeanè½¬æ¢ä¸ºjsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸².
 	 * @param o javabean
-	 * @return  jsonÊı×é¸ñÊ½µÄ×Ö·û´®
+	 * @return  jsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸²
 	 */
 	public  String getJSONArrayFromObject(Object o) {
 		JSONArray json = JSONArray.fromObject(o); 
 		return json.toString();
 	}
     /**
-     * ½«javabean×ª»»Îªjson¶ÔÏó¸ñÊ½µÄ×Ö·û´®.
+     * å°†javabeanè½¬æ¢ä¸ºjsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸².
      * @param o javabean
-     * @return json¶ÔÏó¸ñÊ½µÄ×Ö·û´®
+     * @return jsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸²
      */
 	public String getJSONObjectFromObject(Object o) {
 		JSONObject jsonObj = JSONObject.fromObject(o);
 		return jsonObj.toString();
 	}
 	/**
-	 * ½«list×ª»»ÎªjsonÊı×é¸ñÊ½µÄ×Ö·û´®
+	 * å°†listè½¬æ¢ä¸ºjsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸²
 	 * @param list ArrayList
-	 * @return n jsonÊı×é¸ñÊ½µÄ×Ö·û´®s
+	 * @return n jsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸²s
 	 */
 	public String getJSONArrayFromList(List<?> list) {
 		JSONArray json = JSONArray.fromObject(list); 
 		return json.toString();
 	}
 	/**
-	 * ½«list×ª»»Îªjson¶ÔÏó¸ñÊ½µÄ×Ö·û´®
+	 * å°†listè½¬æ¢ä¸ºjsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸²
 	 * @param list ArrayList
-	 * @return json¶ÔÏó¸ñÊ½µÄ×Ö·û´®
+	 * @return jsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸²
 	 */
 	public String getJSONObjectFromList(List<?> list) {
 		JSONObject jsonObj = new JSONObject();
@@ -53,18 +53,18 @@ public class Object2Json {
 		return jsonObj.toString();
 	}
 	/**
-	 * ½«map×ªÎªjsonÊı×é¸ñÊ½µÄ×Ö·û´®
+	 * å°†mapè½¬ä¸ºjsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸²
 	 * @param map HashMap
-	 * @return jsonÊı×é¸ñÊ½µÄ×Ö·û´®
+	 * @return jsonæ•°ç»„æ ¼å¼çš„å­—ç¬¦ä¸²
 	 */
 	public String getJSONArrayFromMap(Map<String,?> map) {
 		JSONArray json = JSONArray.fromObject(map);
 		return json.toString();
 	}
 	/**
-	 * ½«map×ªÎªjson¶ÔÏó¸ñÊ½µÄ×Ö·û´®
+	 * å°†mapè½¬ä¸ºjsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸²
 	 * @param map HashMap
-	 * @return json¶ÔÏó¸ñÊ½µÄ×Ö·û´®
+	 * @return jsonå¯¹è±¡æ ¼å¼çš„å­—ç¬¦ä¸²
 	 */
 	public String getJSONObjectFromMap(Map<String,?> map) {
 		JSONObject json = JSONObject.fromObject(map);

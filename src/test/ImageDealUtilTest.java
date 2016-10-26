@@ -6,19 +6,19 @@ public class ImageDealUtilTest {
 
 	public static void main(String[] args) {
 		ImageDealUtil imageDeal = new ImageDealUtil("e://1.png", "e://", "2", "png");
-        // ²âÊÔËõ·Å
+        // æµ‹è¯•ç¼©æ”¾
       /*  try {
 			imageDeal.zoom(200, 300);
 		} catch (Exception e2) {
 			e2.printStackTrace();
 		} */
-        // ²âÊÔÐý×ª
+        // æµ‹è¯•æ—‹è½¬
        /*  try {
 			imageDeal.spin(90);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}*/ 
-        //²âÊÔÂíÈü¿Ë
+        //æµ‹è¯•é©¬èµ›å…‹
        /* try {
 			imageDeal.mosaic(4);
 		} catch (Exception e) {
