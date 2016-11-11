@@ -31,6 +31,8 @@ public class PoiExcelExport {
 	HttpServletResponse response;
 	// 文件名
 	private String fileName ;
+	//每个sheet页最大条数
+	private int sheetSize = 20000;
 	//文件保存路径
 	private String fileDir;
 	//sheet名
@@ -143,6 +145,19 @@ public class PoiExcelExport {
 		this.colFormula = colFormula;
 	}
 	/**
+	 * 设置每个sheet页最大行数
+	 * @param sheetSize
+	 */
+	public void setSheetSize(int sheetSize) {
+		if(sheetSize>65535){
+			this.sheetSize = 65535;
+		}else if(sheetSize<2){
+			//不操作
+		}else{
+			this.sheetSize = sheetSize;			
+		}
+	}
+	/**
      * 导出数据到excel.
      * @param titleColumn  对应bean的属性名
      * @param titleName   excel要导出的表名
@@ -150,8 +165,10 @@ public class PoiExcelExport {
      * @param dataList  数据
      */
 	public void wirteExcel(String titleColumn[],String titleName[],int titleSize[],List<?> dataList){
+		for(int s=0;s<dataList.size()/this.sheetSize+1;s++){
+		
     	//添加Worksheet（不添加sheet时生成的xls文件打开时会报错)
-    	Sheet sheet = workbook.createSheet(this.sheetName);  
+    	Sheet sheet = workbook.createSheet(this.sheetName+""+(s+1));  
     	//新建文件
     	OutputStream out = null;
     	try {	 
@@ -168,7 +185,7 @@ public class PoiExcelExport {
     		}
     		
     		//写入excel的表头
-    		Row titleNameRow = workbook.getSheet(sheetName).createRow(0); 
+    		Row titleNameRow = workbook.getSheet(this.sheetName+""+(s+1)).createRow(0); 
     		//设置样式
     		HSSFCellStyle titleStyle = workbook.createCellStyle();  
     		titleStyle = (HSSFCellStyle) setFontAndBorder(titleStyle, titleFontType, (short) titleFontSize);
@@ -188,16 +205,16 @@ public class PoiExcelExport {
 			}
 	    	
 	    	//通过反射获取数据并写入到excel中
-	    	if(dataList!=null&&dataList.size()>0){
+	    	if(dataList!=null&&(dataList.size()-s*this.sheetSize)>=0){
 	    		//设置样式
 	    		HSSFCellStyle dataStyle = workbook.createCellStyle();  
 	    		titleStyle = (HSSFCellStyle) setFontAndBorder(titleStyle, contentFontType, (short) contentFontSize);
 	    		
 	    		if(titleColumn.length>0){
-	    	    	for(int rowIndex = 1;rowIndex<=dataList.size();rowIndex++){
-	    	    		Object obj = dataList.get(rowIndex-1);     //获得该对象
+	    	    	for(int rowIndex = 1;rowIndex<=this.sheetSize&&dataList.size()>=(s*this.sheetSize+rowIndex);rowIndex++){
+	    	    		Object obj = dataList.get(rowIndex-1+s*this.sheetSize);     //获得该对象
 	    	    		Class clsss = obj.getClass();     //获得该对对象的class实例
-	    	    		Row dataRow = workbook.getSheet(sheetName).createRow(rowIndex);    
+	    	    		Row dataRow = workbook.getSheet(this.sheetName+""+(s+1)).createRow(rowIndex);    
 	    	    		for(int columnIndex = 0;columnIndex<titleColumn.length;columnIndex++){
 	    	    			String title = titleColumn[columnIndex].toString().trim();
 	    	    			if(!"".equals(title)){  //字段不为空
@@ -249,6 +266,7 @@ public class PoiExcelExport {
 				e.printStackTrace();
 			}
 		}  
+		}
 	}
 	
     /**
